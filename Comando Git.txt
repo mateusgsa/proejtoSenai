@@ -1,0 +1,102 @@
+1. Configurar o Git (apenas uma vez)
+Antes de começar a usar o Git, você precisa configurar suas informações de usuário.
+
+Copiar código
+git config --global user.name "Seu Nome"
+git config --global user.email "seuemail@example.com"
+
+
+2. Clonar um repositório
+Quando você deseja baixar um repositório do GitHub para o seu computador local.
+
+Copiar código
+git clone https://github.com/usuario/repo.git
+
+3. Verificar o status dos arquivos
+Verifique quais arquivos foram modificados ou adicionados no seu repositório local.
+
+Copiar código
+git status
+
+4. Adicionar arquivos para commit
+Adiciona arquivos específicos ou todos os arquivos modificados para o próximo commit.
+
+Copiar código
+git add nome-do-arquivo      # Para adicionar um arquivo específico
+git add .                    # Para adicionar todos os arquivos modificados
+
+5. Criar um commit
+Cria um commit com uma mensagem descrevendo as alterações feitas.
+
+Copiar código
+git commit -m "Mensagem do commit"
+
+6. Enviar alterações para o GitHub
+Depois de fazer commits no repositório local, você pode enviar essas alterações para o repositório remoto (GitHub).
+
+Copiar código
+git push origin main
+origin: Nome padrão do repositório remoto.
+
+
+7. Baixar alterações do GitHub
+Quando outras pessoas fazem alterações no repositório remoto, você pode baixar essas alterações para o seu repositório local.
+
+Copiar código
+git pull origin main
+
+8. Criar um nova main
+Cria um novo ramo (branch) para começar a trabalhar em uma nova funcionalidade ou correção de bug.
+
+Copiar código
+git checkout -b main
+
+9. Mudar para uma main existente
+Troca para uma main já existente.
+
+
+Copiar código
+git checkout main
+
+10. Mesclar main
+Depois de fazer alterações em uma main, você pode querer mesclar essas alterações de volta para o ramo principal (geralmente main ou master).
+
+Copiar código
+git merge main
+
+11. Exibir histórico de commits
+Exibe o histórico de commits do repositório.
+
+Copiar código
+git log
+
+12. Excluir uma main local
+Caso não precise mais de uma main local.
+
+Copiar código
+git branch -d main
+
+13. Remover arquivos do repositório
+Caso você queira remover um arquivo do repositório.
+
+Copiar código
+git rm nome-do-arquivo
+
+14. Verificar a diferença (diff)
+Compara o que foi modificado em relação ao último commit.
+
+Copiar código
+git diff
+
+15. Sincronizar com o repositório remoto
+Para garantir que o repositório local está atualizado com o remoto, use:
+
+Copiar código
+git fetch origin
+
+
+16. O que esse comando faz é realizar um merge entre dois ramos no Git usando a estratégia "ours" para resolver conflitos.
+git merge --strategy-option ours
+
+17. é usado durante o processo de merge para resolver conflitos de maneira específica, e ele diz ao Git para priorizar as mudanças do repositório que está sendo mesclado
+git merge --strategy-option theirs

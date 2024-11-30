@@ -1,6 +1,5 @@
 //IMPORTANDO OS MODELOS 
-const ClienteModel = require('../models/clienteModels');
-const teamModelCliente = ClienteModel.teamModelCliente;
+const {ClienteModel} = require('../models/clienteModels');
 
 const userController = {
     index: (req, res) => {
@@ -12,7 +11,7 @@ const userController = {
     }
 };
 
-const teamController = {
+const clienteController = {
     listarClientes: async (req, res) => {
         try {
             const Clientes = await teamModelCliente.findAll();
@@ -93,4 +92,4 @@ const teamController = {
     }
 };
 
-module.exports = { userController, teamController };
+module.exports = { userController, clienteController };

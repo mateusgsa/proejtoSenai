@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const p2Controller = require("../controllers/controllerProduto");
+const p2Controller = require("../controllers/produtoController");
 const {userController, produtosController} = p2Controller;
 
 router.get("/",userController.index);

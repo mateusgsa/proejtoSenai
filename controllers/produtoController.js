@@ -1,4 +1,4 @@
-const p2Model = require('../models/modelPoduto');
+const p2Model = require('../models/produtoModel');
 const produtosModel = p2Model.produtosModel;
 
 const userController = {

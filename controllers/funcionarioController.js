@@ -1,6 +1,5 @@
 //IMPORTANDO OS MODELOS 
-const funcionarioModel = require('../models/modelFuncionario');
-const modelFuncionario = funcionarioModel.modelFuncionario;
+const {funcionarioModel} = require('../models/funcionarioModel');
 
 const userController = {
     index: (req, res) => {
@@ -12,10 +11,10 @@ const userController = {
         }
     };
 
-const teamController = {
+const funcionarioController = {
     listarFuncionarios: async (req, res) => {
         try {
-            const funcionario = await modelFuncionario.findAll();
+            const funcionario = await funcionarioModel.findAll();
             res.send(funcionario);
         } catch (error) {
             res.send(`Erro ao acessar a pagina: ${error}`);            
@@ -35,7 +34,7 @@ const teamController = {
                 senhaFuncionario, 
                 permissaoFuncionario} = req.body;
            
-                await modelFuncionario.create({
+                await funcionarioModel.create({
                 nomeFuncionario, 
                 enderecoFuncionario,
                 cpfFuncionario, 
@@ -69,13 +68,13 @@ const teamController = {
                 senhaFuncionario, 
                 permissaoFuncionario} = req.body;
             
-            const funcionario = await modelFuncionario.findByPk(id_funcionario);
+            const funcionario = await funcionarioModel.findByPk(id_funcionario);
 
             if (!funcionario){
-                return res.status(404).send(`Equipe não encotrada!`);
+                return res.status(404).send(`Funcionário não encotrada!`);
             }
 
-            await modelFuncionario.update(
+            await funcionarioModel.update(
                 {
                 nomeFuncionario, 
                 enderecoFuncionario,
@@ -91,7 +90,7 @@ const teamController = {
 
             );
 
-            res.status(200).json({message: "Equipe atualizada com sucesso!"});
+            res.status(200).json({message: "Funcionário atualizado com sucesso!"});
 
         } catch (error) {
             
@@ -103,13 +102,13 @@ const teamController = {
         try {
             const {id_funcionario} = req.params;
 
-            const funcionario = await modelFuncionario.findByPk(id_funcionario);
+            const funcionario = await funcionarioModel.findByPk(id_funcionario);
 
             if (!funcionario){
                 return res.status(404).send(`Funcionário não encotrada!`);
             }
 
-           const result = await modelFuncionario.destroy( {
+           const result = await funcionarioModel.destroy( {
             where: {id_funcionario}     
            });
 
@@ -131,4 +130,4 @@ const teamController = {
     }
 };
 
-module.exports = {userController, teamController};
+module.exports = {userController, funcionarioController};

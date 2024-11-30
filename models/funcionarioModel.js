@@ -2,7 +2,7 @@ const {sequelize} = require('../config/config'); //VARIAVEL DE CONEXÃO DO BANCO
 const DataTypes = require('sequelize');
 
 //DEFINE OS DADOS
-const modelFuncionario = sequelize.define('Funcionario', {
+const funcionarioModel = sequelize.define('Funcionario', {
     id_funcionario:{
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -51,4 +51,4 @@ const modelFuncionario = sequelize.define('Funcionario', {
     timestamps: false
 }); 
 
-module.exports = {modelFuncionario};
+module.exports = {funcionarioModel};

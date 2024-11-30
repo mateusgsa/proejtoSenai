@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-const clienteController = require("../controllers/clienteController");
+const cliController = require("../controllers/clienteController");
+const {userController, clienteController} = cliController;
 
-router.get("/", clienteController.userController.index);
-router.get("/listarClientes", clienteController.teamController.listarClientes);
-router.post("/criarClientes", clienteController.teamController.criarClientes);
-router.put("/editarClientes/:id_cliente", clienteController.teamController.editarClientes);
-router.delete("/deletarEquipe/:id_cliente", clienteController.teamController.deletarEquipe);
+router.get("/", userController.index);
+router.get("/listarClientes", clienteController.listarClientes);
+router.post("/criarClientes", clienteController.criarClientes);
+router.put("/editarClientes/:id_cliente", clienteController.editarClientes);
+router.delete("/deletarEquipe/:id_cliente", clienteController.deletarEquipe);
 
 module.exports = router;
