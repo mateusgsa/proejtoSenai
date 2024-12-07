@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Pedidos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID Pedido</th>
+                <th>Cliente</th>
+                <th>Funcionário</th>
+                <th>Itens</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% pedidos.forEach(pedido => { %>
+                <tr>
+                    <td><%= pedido.id_pedido %></td>
+                    <td><%= pedido.Cliente.nomeCliente %></td>
+                    <td><%= pedido.Funcionario.nomeFuncionario %></td>
+                    <td>
+                        <ul>
+                            <% pedido.Item.forEach(item => { %>
+                                <li>
+                                    Produto: <%= item.Produto.nomeProduto %>
+                                </li>
+                            <% }) %>
+                        </ul>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>

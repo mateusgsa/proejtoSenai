@@ -54,14 +54,14 @@ clienteModel.hasMany(pedidoModel, {
     as: 'Pedido' 
 });
 
-funcionarioModel.hasMany(pedidoModel, {
-    foreignKey: 'id_funcionario',
-    as: 'Pedido'
-});
-
 pedidoModel.belongsTo(clienteModel, {
     foreignKey: 'id_cliente',
     as: 'Cliente'
+});
+
+funcionarioModel.hasMany(pedidoModel, {
+    foreignKey: 'id_funcionario',
+    as: 'Pedido'
 });
 
 pedidoModel.belongsTo(funcionarioModel, {
