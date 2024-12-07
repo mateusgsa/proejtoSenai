@@ -1,5 +1,5 @@
 //IMPORTANDO OS MODELOS 
-const {ClienteModel} = require('../models/clienteModel');
+const {clienteModel} = require('../models/clienteModel');
 
 const userController = {
     index: (req, res) => {
@@ -62,7 +62,7 @@ const clienteController = {
         }
     },
 
-    deletarEquipe: async (req, res) => {
+    deletarCliente: async (req, res) => {
         try {
             const { id_cliente } = req.params;
 

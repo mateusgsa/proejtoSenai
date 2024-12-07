@@ -8,6 +8,6 @@ router.get("/", userController.index);
 router.get("/listarClientes", clienteController.listarClientes);
 router.post("/criarClientes", clienteController.criarClientes);
 router.put("/editarClientes/:id_cliente", clienteController.editarClientes);
-router.delete("/deletarEquipe/:id_cliente", clienteController.deletarEquipe);
+router.delete("/deletarCliente/:id_cliente", clienteController.deletarCliente);
 
 module.exports = router;
