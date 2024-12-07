@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const funContoller = require("../controllers/funcionarioController");
-const {userController, funcionarioController} = funContoller;
+const funController = require("../controllers/funcionarioController");
+const {userController, funcionarioController} = funController;
 
 router.get("/", userController.index);
 router.get("/listarFuncionarios", funcionarioController.listarFuncionarios);

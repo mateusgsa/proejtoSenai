@@ -71,7 +71,7 @@ const funcionarioController = {
             const funcionario = await funcionarioModel.findByPk(id_funcionario);
 
             if (!funcionario){
-                return res.status(404).send(`Funcionário não encotrada!`);
+                return res.status(404).send(`Funcionário não encotrado!`);
             }
 
             await funcionarioModel.update(
@@ -105,7 +105,7 @@ const funcionarioController = {
             const funcionario = await funcionarioModel.findByPk(id_funcionario);
 
             if (!funcionario){
-                return res.status(404).send(`Funcionário não encotrada!`);
+                return res.status(404).send(`Funcionário não encotrado!`);
             }
 
            const result = await funcionarioModel.destroy( {
@@ -114,7 +114,7 @@ const funcionarioController = {
 
            if (result > 0) {
 
-            return res.status(200).json({messagem: "Funcionário exluida com sucesso!"});  
+            return res.status(200).json({messagem: "Funcionário excluido com sucesso!"});  
 
             } else {
 

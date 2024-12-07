@@ -39,14 +39,14 @@ const produtosController = {
             const produto = await produtosModel.findByPk(id_produto);
 
             if(!produto){
-                return res.status(404).send("Produto não encontrada!");
+                return res.status(404).send("Produto não encontrado!");
             }
 
             await produtosModel.update({nomeProduto, descricaoProduto, quantidadeProduto, pesoProduto, precoProduto, disponibilidadeProduto},
                 {where: {id_produto}}
             );
 
-            res.status(200).json({message: "Produto atualizada com sucesso!"});
+            res.status(200).json({message: "Produto atualizado com sucesso!"});
 
         } catch (error) {
             res.send(`Erro ao acessar a pagina: ${error}`)
@@ -59,7 +59,7 @@ const produtosController = {
             const produto = await produtosModel.findByPk(id_produto);
 
             if(!produto){
-                return res.status(404).send("produto não encontrada!");
+                return res.status(404).send("produto não encontrado!");
             }
 
             const result = await produtosModel.destroy({
@@ -67,7 +67,7 @@ const produtosController = {
             });
 
             if (result > 0) {
-                return res.status(200).json({message: "produto excluida com sucesso!"});
+                return res.status(200).json({message: "produto excluido com sucesso!"});
 
             } else {
                 return res.status(404).send("Erro ao excluir o produto!");

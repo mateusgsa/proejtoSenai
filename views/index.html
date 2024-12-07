@@ -1,11 +1,187 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funcionarios</title>
+    <title>ERP Lanatto Açaíteria</title>
+    <style>
+        /* Resetando estilos básicos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Configurações gerais */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Container principal */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Cabeçalho */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2a9d8f; /* Cor de fundo verde */
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        header .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        header nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        header nav ul li {
+            margin-left: 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        header nav ul li a:hover {
+            color: #f1faee; /* Cor de destaque para links */
+        }
+
+        /* Seção principal */
+        main {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-section h1 {
+            font-size: 2.5em;
+            color: #2a9d8f;
+            margin-bottom: 10px;
+        }
+
+        .welcome-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .quick-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .action-card {
+            background-color: #e9f5f1; /* Cor suave para o fundo do cartão */
+            border: 2px solid #2a9d8f;
+            padding: 20px;
+            width: 30%;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-card h2 {
+            font-size: 1.8em;
+            color: #2a9d8f;
+            margin-bottom: 15px;
+        }
+
+        .action-card p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .action-card a {
+            text-decoration: none;
+            background-color: #2a9d8f;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .action-card a:hover {
+            background-color: #264e41;
+        }
+
+        /* Rodapé */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 1em;
+            color: #333;
+            padding: 10px;
+            background-color: #2a9d8f;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <img src="logo-lanatto.png" alt="Logo Lanatto Açaíteria"> <!-- Substitua pelo logo da Lanatto -->
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Vendas</a></li>
+                    <li><a href="#">Estoque</a></li>
+                    <li><a href="#">Relatórios</a></li>
+                    <li><a href="#">Configurações</a></li>
+                    <li><a href="#">Sair</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <section class="welcome-section">
+                <h1>Bem-vindo ao ERP Lanatto Açaíteria</h1>
+                <p>Gerencie suas operações com facilidade e eficiência.</p>
+                <div class="quick-actions">
+                    <div class="action-card">
+                        <h2>Vendas</h2>
+                        <p>Acesse o módulo de vendas e registre novas transações.</p>
+                        <a href="#">Ir para Vendas</a>
+                    </div>
+                    <div class="action-card">
+                        <h2>Estoque</h2>
+                        <p>Visualize e controle o estoque de produtos da Açaíteria.</p>
+                        <a href="#">Ir para Estoque</a>
+                    </div>
+                    <div class="action-card">
+                        <h2>Relatórios</h2>
+                        <p>Veja relatórios detalhados sobre o desempenho da empresa.</p>
+                        <a href="#">Ir para Relatórios</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Lanatto Açaíteria. Todos os direitos reservados.</p>
+        </footer>
+    </div>
 </body>
 </html>

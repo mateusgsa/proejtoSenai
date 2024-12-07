@@ -1,5 +1,5 @@
 //IMPORTANDO OS MODELOS 
-const {ClienteModel} = require('../models/clienteModels');
+const {ClienteModel} = require('../models/clienteModel');
 
 const userController = {
     index: (req, res) => {
@@ -14,7 +14,7 @@ const userController = {
 const clienteController = {
     listarClientes: async (req, res) => {
         try {
-            const Clientes = await teamModelCliente.findAll();
+            const Clientes = await clienteModel.findAll();
             res.send(Clientes);
         } catch (error) {
             res.send(`Erro ao acessar a pagina: ${error}`);
@@ -25,7 +25,7 @@ const clienteController = {
         try {
 
             const { nomeCliente, enderecoCliente, cpfCliente, telefoneCliente, emailCliente, senhaCliente } = req.body;
-            await teamModelCliente.create({ nomeCliente, enderecoCliente, cpfCliente, telefoneCliente, emailCliente, senhaCliente });
+            await clienteModel.create({ nomeCliente, enderecoCliente, cpfCliente, telefoneCliente, emailCliente, senhaCliente });
             res.redirect("listarClientes");
 
         } catch (error) {
@@ -42,13 +42,13 @@ const clienteController = {
             const { id_cliente } = req.params;
             const { nomeCliente, enderecoCliente, cpfCliente, telefoneCliente, emailCliente, senhaCliente } = req.body;
 
-            const Clientes = await teamModelCliente.findByPk(id_cliente);
+            const Clientes = await clienteModel.findByPk(id_cliente);
 
             if (!Clientes) {
                 return res.status(404).send(`Cliente não encotrado!`);
             }
 
-            await teamModelCliente.update(
+            await clienteModel.update(
                 { nomeCliente, enderecoCliente, cpfCliente, telefoneCliente, emailCliente, senhaCliente },
                 { where: { id_cliente } }
             );
@@ -66,13 +66,13 @@ const clienteController = {
         try {
             const { id_cliente } = req.params;
 
-            const Cliente = await teamModelCliente.findByPk(id_cliente);
+            const Cliente = await clienteModel.findByPk(id_cliente);
 
             if (!Cliente) {
                 return res.status(404).send(`Cliente não encotrado!`);
             }
 
-            const result = await teamModelCliente.destroy({
+            const result = await clienteModel.destroy({
                 where: { id_cliente }
             });
 

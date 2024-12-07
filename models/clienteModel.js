@@ -2,7 +2,7 @@ const {sequelize} = require('../config/config'); //VARIAVEL DE CONEXÃO DO BANCO
 const DataTypes = require('sequelize');
 
 //DEFINE OS DADOS
-const teamModelCliente = sequelize.define('Cliente', {
+const clienteModel = sequelize.define('Cliente', {
     id_cliente:{
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -41,4 +41,4 @@ const teamModelCliente = sequelize.define('Cliente', {
 //  o nome da coluna errada ai em cima ele cria uma nova com o nome que você colocou
 }); 
 
-module.exports = {teamModelCliente};
+module.exports = {clienteModel};
