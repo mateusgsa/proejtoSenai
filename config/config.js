@@ -4,11 +4,11 @@ const app = express();
 
 const Sequelize = require("sequelize");
 
-const sequelize = new Sequelize('lanattoacaiteria', 'sa', 'UserAdm123', {
+const sequelize = new Sequelize('lanattoacaiteria', 'mateusgsa_SQLLogin_1', 'ygaan9gbm4', {
     // MOSTRANDO O BANCO DE DADOS QUE VAI SER USADO
     dialect: 'mssql', 
     dialectModule: require('tedious'),
-    host: 'localhost',
+    host: 'lanattoacaiteria.mssql.somee.com',
     port: 1433
 });
 
