@@ -9,7 +9,7 @@ const {funcionarioModel} = require('./funcionarioModel');
 const pedidoModel = sequelize.define('Pedido', {
     id_pedido:{
         type: DataTypes.INTEGER,
-        autoIcrement: true,
+        autoIncrement: true,
         primaryKey: true
     },
     id_cliente:{

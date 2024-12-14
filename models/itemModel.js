@@ -32,9 +32,6 @@ const itemModel = sequelize.define('Item', {
     }
 );
 
-pedidoModel.belongsToMany(produtosModel, { through: itemModel });
-produtosModel.belongsToMany(pedidoModel, { through: itemModel });
-
 pedidoModel.hasMany(itemModel, {
     foreignKey: 'id_pedido',
     as: 'Item'

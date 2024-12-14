@@ -26,6 +26,8 @@
                 <th>ID Pedido</th>
                 <th>Cliente</th>
                 <th>Funcionário</th>
+                <th>Data</th>
+                <th>Valor</th>
                 <th>Itens</th>
             </tr>
         </thead>
@@ -35,6 +37,8 @@
                     <td><%= pedido.id_pedido %></td>
                     <td><%= pedido.Cliente.nomeCliente %></td>
                     <td><%= pedido.Funcionario.nomeFuncionario %></td>
+                    <td><%= pedido.dataPedido %></td>
+                    <td><%= pedido.totalPedido %></td>
                     <td>
                         <ul>
                             <% pedido.Item.forEach(item => { %>

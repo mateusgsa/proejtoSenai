@@ -4,6 +4,7 @@ const { clienteModel } = require('../models/clienteModel');
 const { funcionarioModel } = require('../models/funcionarioModel');
 const { itemModel } = require('../models/itemModel');
 const { produtosModel } = require('../models/produtoModel');
+const { itemController } = require('./itemContoller');
 
 const userController = {
     index: (req, res) => {
@@ -47,13 +48,13 @@ const pedidoController = {
                         model: itemModel,
                         as: 'Item',
                         required: true,
-                        attributes: ['id_produto'], 
+                        attributes: ['id_produto'],
                         include: [
                             {
                                 model: produtosModel,
-                                as: 'Produto', 
+                                as: 'Produto',
                                 required: true,
-                                attributes: ['nomeProduto'] 
+                                attributes: ['nomeProduto']
                             }
                         ]
                     }
@@ -61,7 +62,7 @@ const pedidoController = {
             });
 
 
-            res.render("pedidos", {pedidos});
+            res.send(pedidos);
         } catch (error) {
 
             res.status(500).send("Erro ao acessar a página: " + error);
@@ -71,22 +72,39 @@ const pedidoController = {
     criarPedido: async (req, res) => {
         try {
             const {
-                id_pedido,
                 id_cliente,
                 id_funcionario,
                 dataPedido,
                 quantidadeItens,
-                totalPedido
+                totalPedido,
+                itens
             } = req.body;
 
             await pedidoModel.create({
-                id_pedido,
                 id_cliente,
                 id_funcionario,
                 dataPedido,
                 quantidadeItens,
-                totalPedido
+                totalPedido,
+            }, {
+                include: [{
+                    model: itemModel,  
+                    as: 'Item',       
+                    required: true     
+                }]
             });
+
+            const ultimoPedido = await pedidoModel.findOne({
+                order: [['id_pedido', 'DESC']],
+                attributes: ['id_pedido']
+            });
+
+            await Promise.all(itens.map(async (item) => {
+                await itemModel.create({
+                    id_pedido: ultimoPedido.id_pedido,
+                    id_produto: item.id_produto
+                });
+            }));    
 
             res.redirect("/listarPedidos");
 
@@ -104,7 +122,9 @@ const pedidoController = {
                 id_funcionario,
                 dataPedido,
                 quantidadeItens,
-                totalPedido } = req.body;
+                totalPedido,
+                itens
+            } = req.body;
 
             const pedido = await pedidoModel.findByPk(id_pedido);
 
@@ -123,6 +143,17 @@ const pedidoController = {
                 { where: { id_pedido } }
 
             );
+
+            await itemModel.destroy({
+                where: {id_pedido}
+            });
+
+            await Promise.all(itens.map(async (item) => {
+                await itemModel.create({
+                    id_pedido: ultimoPedido.id_pedido,
+                    id_produto: item.id_produto
+                });
+            }));
 
             res.status(200).json({ message: "Pedido atualizado com sucesso!" });
 
