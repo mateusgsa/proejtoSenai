@@ -148,6 +148,11 @@ const pedidoController = {
                 where: {id_pedido}
             });
 
+            const ultimoPedido = await pedidoModel.findOne({
+                order: [['id_pedido', 'DESC']],
+                attributes: ['id_pedido']
+            });
+
             await Promise.all(itens.map(async (item) => {
                 await itemModel.create({
                     id_pedido: ultimoPedido.id_pedido,
@@ -172,6 +177,10 @@ const pedidoController = {
             if (!pedido) {
                 return res.status(404).send(`Pedido não encontrado!`);
             }
+
+            await itemModel.destroy({
+                where: {id_pedido}
+            });
 
             const result = await pedidoModel.destroy({
                 where: { id_pedido }
