@@ -1,44 +1,46 @@
-const {sequelize} = require('../config/config'); //VARIAVEL DE CONEXÃO DO BANCO DE DADOS
+// IMPORTA A INSTÂNCIA DO SEQUELIZE COM CONEXÃO DO BANCO DE DADOS
+const { sequelize } = require('../config/config');
+// IMPORTA OS DADOS DISPONÍVEIS NO SEQUELIZE
 const DataTypes = require('sequelize');
 
-//DEFINE OS DADOS
-const clienteModel = sequelize.define('Cliente', {
-    id_cliente:{
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+//DIFINE MODELO DA TABELA 
+const clienteModel = sequelize.define('Cliente', //NOME DO MODELO
+    {
+        // CHAVE PRIMÁRIA AUTOINCREMENTADA
+        id_cliente: {
+            type: DataTypes.INTEGER, // TIPO DO DADO
+            autoIncrement: true, 
+            primaryKey: true
+        },
+        nomeCliente: {
+            type: DataTypes.STRING, // TIPO DO DADO
+            allowNull: false // PARA NÃO PERMITIR VALOR NULO
+        },
+        enderecoCliente: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        cpfCliente: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        telefoneCliente: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        emailCliente: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        senhaCliente: {
+            type: DataTypes.STRING,
+            allowNull: true
+        }
     },
-    nomeCliente: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    enderecoCliente: {
-        type: DataTypes.STRING,
-        allowNull: true
-    },
-    cpfCliente:{
-        type: DataTypes.STRING,
-        allowNull: true
-    },
-    telefoneCliente:{
-        type: DataTypes.STRING,
-        allowNull: true
-    },
-    emailCliente:{
-        type: DataTypes.STRING,
-        allowNull: true
-    },
-    senhaCliente:{
-        type: DataTypes.STRING,
-        allowNull: true
-    }
-},
-{
-    tableName: 'Cliente', 
-    timestamps: false
-//  o timestamps quer dizer se o codigo pode criar colunas novas
-//  no banco, tipo se colocou
-//  o nome da coluna errada ai em cima ele cria uma nova com o nome que você colocou
-}); 
+    {
+        tableName: 'Cliente', // NOME DA TABELA NO BANCO DE DADOS
+        timestamps: false // DESATIVA A CRIAÇÃO AUTOMATICA DE COLUNAS
+    });
 
-module.exports = {clienteModel};
+// EXPORTA O MODELO CLIENTE
+module.exports = { clienteModel };
