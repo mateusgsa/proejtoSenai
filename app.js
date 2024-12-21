@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 // PORTA DEFINIDA DO SERVIDOR
 const port = 3000;
+const cors = require('cors');
 
 // IMPORTANDO O MÓDULO PATH, PARA FACILITAR COM OS CAMINHOS DE ARQUIVOS DE DIRETÓRIOS
 const path = require("path"); 
@@ -32,6 +33,7 @@ app.use('/', clienteRouters);
 app.use('/', funcionarioRouters);
 app.use('/', produtoRouters);
 app.use('/', pedidoRouters);
+app.use(cors()); // Habilita CORS para todas as rotas
 
 // INCIALIZANDO O SERVIDOR NA PORTA 3000
 app.listen(port, ()=>{
