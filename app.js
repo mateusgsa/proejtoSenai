@@ -6,6 +6,13 @@ const app = express();
 const port = 3000;
 const cors = require('cors');
 
+const corsOptions = {
+    origin:"*",
+    methods: ['GET','POST','DELETE','OPTIONS'],
+    allowedHeaders: ['Content-Type','Authorization'],
+    credentials: true
+}
+
 // IMPORTANDO O MÓDULO PATH, PARA FACILITAR COM OS CAMINHOS DE ARQUIVOS DE DIRETÓRIOS
 const path = require("path"); 
 
@@ -33,7 +40,7 @@ app.use('/', clienteRouters);
 app.use('/', funcionarioRouters);
 app.use('/', produtoRouters);
 app.use('/', pedidoRouters);
-app.use(cors()); // Habilita CORS para todas as rotas
+app.use(cors(corsOptions)); // Habilita CORS para todas as rotas
 
 // INCIALIZANDO O SERVIDOR NA PORTA 3000
 app.listen(port, ()=>{
