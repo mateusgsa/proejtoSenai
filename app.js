@@ -29,6 +29,8 @@ connectToDatabase();
 // DEFININDO O MOTOR DE VISULIAÇÃO (VIEW ENGINE) COMO 'EJS',  FERRAMENTA DE TEMPLATE
 app.set('view engine', 'ejs');
 
+app.use(cors(corsOptions)); // Habilita CORS para todas as rotas
+
 // UTILIZANDO O MIDDLEWARE PARA INTERPRETAR O CORPO DAS REQUISIÇÕES HTTP EM FORMATO JSON
 app.use(express.json());
 
@@ -40,7 +42,7 @@ app.use('/', clienteRouters);
 app.use('/', funcionarioRouters);
 app.use('/', produtoRouters);
 app.use('/', pedidoRouters);
-app.use(cors(corsOptions)); // Habilita CORS para todas as rotas
+
 
 // INCIALIZANDO O SERVIDOR NA PORTA 3000
 app.listen(port, ()=>{
